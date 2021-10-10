@@ -1,0 +1,11 @@
+#teamItem:hover{
+    background-color: var(--primary) !important;
+    cursor: pointer;
+    h5{
+        color: white;
+    }
+    span{
+        color: palegoldenrod !important;
+        font-weight: light;
+    }
+}

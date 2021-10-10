@@ -1,0 +1,36 @@
+body {
+    font-weight: 400;
+    background: red;
+    font-family: 'Barlow', sans-serif;
+}
+#hero{
+    background-color: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)) !important;
+}
+
+a{
+    color: white;
+}
+
+
+.hero-headline{
+    font-family:'Poppins', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',Verdana, sans-serif;
+    color: var(--themeColor);
+    
+}
+
+.hero-banner a{
+    background-color: var(--themeColor) !important;
+    color: white;
+    padding: 10px 15px !important;
+    border-radius: 5px;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.hero-banner a:hover{
+    background-color: var(--themeColor) !important;
+    color: white;
+    border-radius: 5px;
+    font-size: larger;
+    text-transform: uppercase;
+}

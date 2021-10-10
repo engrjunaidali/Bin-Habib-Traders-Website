@@ -1,0 +1,14 @@
+#teamItem:hover {
+  background-color: var(--themeColor) !important;
+  cursor: pointer;
+}
+
+#teamItem:hover h5 {
+  color: white;
+}
+
+#teamItem:hover span {
+  color: palegoldenrod !important;
+  font-weight: light;
+}
+/*# sourceMappingURL=team.css.map */

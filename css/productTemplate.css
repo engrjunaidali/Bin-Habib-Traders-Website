@@ -1,0 +1,11 @@
+.btn-back{
+    /* position: absolute !important; */
+    /* top: 150px; */
+    color: white;
+}
+
+.productName{
+    color: #fff;
+    background-color: var(--themeColor);
+    padding-left: 10px;
+}

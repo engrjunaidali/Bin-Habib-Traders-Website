@@ -1,79 +1,100 @@
 <?php 
 define('TITLE','Login | AutoWash');
-include 'components/navbar.php';?>
+include 'components/navbar.php';
+include 'includes/config.php';
 
-<div class="container mt-3 mb-3">
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-2 text-center">Login</h4>
-	<p class="text-center message">Get started with your free account</p>
-	<p>
-		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via Facebook</a>
-	</p>
-	<p class="divider-text">
-        <span class="bg-light text-center">OR</span>
-    </p>
-	<form action="login.php" method="POST">
-    <!-- Name -->
-	<!-- <div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="username" class="form-control" placeholder="Full name" type="text" required>
-    </div>  -->
-    <!-- Email -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
-        <input name="email" class="form-control" placeholder="Email address" type="email">
-    </div>
+$message = ""; $class="";
+if(isset($_POST["login_submit"])){
+
     
-    <!-- Phone -->
-    <!-- <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		</div>
-    	<input name="phone" class="form-control" placeholder="Phone number" type="text">
-    </div> -->
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    <!-- Job -->
-    <!-- <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-		</div>
-		<select class="form-control">
-			<option selected=""> Select job type</option>
-			<option>Designer</option>
-			<option>Manager</option>
-			<option>Accaunting</option>
-		</select>
-	</div> -->
-    <!-- Password -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Create password" type="password" name="password">
+    $q = " select * from users where email = '$email' && password ='$password' ";
+
+    $result = mysqli_query($con, $q);
+
+    $num = mysqli_num_rows($result);
+
+    if($num==1){
+        
+        while($row = mysqli_fetch_assoc($result)){
+            $name = $row["name"];
+        }
+        $_SESSION["name"]=$name;
+
+        $_SESSION["login"] = "1";
+        // header("location:index.php");
+        $message = "Logged in successfully";
+        $class="success";
+		echo "<script>setTimeout(\"location.href = 'index.php';\",1000);</script>";
+
+        
+    }else{
+        $message = "Please try again.";
+        $class="danger";
+        echo "<script>setTimeout(\"location.href = 'login.php';\",1000);</script>";
+
+    }
+
+}
+
+
+?>
+
+<link rel="stylesheet" href="css/login.css">
+<div class="container my-5">
+    <br>
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-6 .d-md-none">
+            <img width="450" height="450" src="img/login.png" class="img-fluid login" alt="login">
+        </div>
+        <div class="col-md-6" >
+            <div class="card bg-light py-5 ">
+                <article class="card-body mx-auto" style="max-width: 400px;">
+                    <h4 class="card-title mb-5 text-center">Login</h4>
+                    <div class="alert alert-<?php echo $class;?>" role="alert">
+                        <?php echo $message;?>
+                    </div>
+                    <!-- <p>
+                <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via
+                    Facebook</a>
+            </p>
+            <p class="divider-text">
+                <center><span class="bg-light text-center">OR</span></center>
+            </p> -->
+                    <form action="login.php" method="POST">
+
+                        <!-- Email -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            </div>
+                            <input name="email" class="form-control" placeholder="Email address" type="email">
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <input class="form-control" placeholder="Create password" type="password" name="password">
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                            <button type="submit" name="login_submit" class="btn btn-primary btn-block"> Login </button>
+                        </div> <!-- form-group// -->
+                        <p class="text-center">Don't have an account? <a href="register.php">Register Now</a> </p>
+                    </form>
+                </article>
+            </div> <!-- card.// -->
+
+        </div>
     </div>
-    <!-- Repeat Password -->
-    <!-- <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Repeat password" type="password" name="cpassword">
-    </div> -->
-    <!-- Button -->
-    <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-primary btn-block"> Create Account  </button>
-    </div> <!-- form-group// -->      
-    <p class="text-center">Don't have an account? <a href="register.php">Register Now</a> </p>                                                                 
-</form>
-</article>
-</div> <!-- card.// -->
 
-</div> 
+</div>
 <!--container end.//-->
 
 <?php include 'components/footer.php';?>

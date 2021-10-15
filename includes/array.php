@@ -96,8 +96,8 @@ $products = array(
 $pricePlan = array(
     array(
         "planName" => 'Starter',
-        "planPriceCross" => '7,200',
-        "planPrice" => '6,300',
+        "planPriceCross" => '8,100',
+        "planPrice" => '7,200',
         "planDuration" => "Monthly",
         "adv1" => "3 Bottles Daily",
         "adv2" => "21 Bottles per week",
@@ -105,8 +105,8 @@ $pricePlan = array(
     ),
     array(
         "planName" => 'Medium',
-        "planPriceCross" => '12,000',
-        "planPrice" => '9,750',
+        "planPriceCross" => '13,500',
+        "planPrice" => '11,250',
         "planDuration" => "Monthly",
         "adv1" => "5 Bottles Daily",
         "adv2" => "35 Bottles Per week",
@@ -114,8 +114,8 @@ $pricePlan = array(
     ),
     array(
         "planName" => 'Advance',
-        "planPriceCross" => '24,000',
-        "planPrice" => '18,000',
+        "planPriceCross" => '27,000',
+        "planPrice" => '21,000',
         "planDuration" => "Monthly",
         "adv1" => "10 Bottles Daily",
         "adv2" => "70 Bottles per week",
@@ -139,11 +139,11 @@ $teamMembers = array(
         "position" => 'Brand Ambassador',
         "img" => 'junaid.jpg'
     ),
-    // array(
-    //     "name" => 'Ahab Ali',
-    //     "position" => 'IT',
-    //     "img" => 'ahab'
-    // ),
+    array(
+        "name" => 'Miss Gul Sanober',
+        "position" => 'Media Co-ordinate',
+        "img" => 'ahab'
+    ),
 
 );
 

@@ -9,9 +9,8 @@
             </div>
             <div class="col-lg-6">
                 <h1 class="mt-3 hero-headline">The future of our water is in safe hands</h1>
-                <p class="lead text-secondary my-5"><strong class="text-uppercase">Water Smarter! Every Bottle is starilized...</strong><br><br>
-                A drop of water is worth more than a sack of gold to a thirsty man.
-                Do you, or someone you know, need a little help?</p>
+                <p class="lead text-secondary my-5"><strong>Every bottle is sterilized before filling water minerals contents.</strong><br><br>
+                Eight glass of pure water in a day keeps your life healthy. don't waste pure water there is difficult to live  healthy without its purrety.</p>
                 <a href="order.php" class="order-now">Order Now</a>
             </div>
         </div>
